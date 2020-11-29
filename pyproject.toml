@@ -8,6 +8,7 @@ repository = "https://github.com/hrfmtzk/gitlab-actions"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+python-gitlab = "^2.5.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
