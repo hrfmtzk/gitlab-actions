@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "gitlab-actions"
 version = "0.1.0"
-description = ""
+description = "GitLab actions"
 authors = ["Hirofumi Tsuzuki <hrfm.tsuzuki@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/hrfmtzk/gitlab-actions"
 
 [tool.poetry.dependencies]
 python = "^3.9"
