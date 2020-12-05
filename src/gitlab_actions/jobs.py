@@ -38,12 +38,14 @@ class JobRunner:
 
         return targets
 
-    def run(self, project: Project) -> None:
+    def run(self, project: Project) -> List[BaseTarget]:
         targets: List[BaseTarget] = self._get_filtered_targets(project)
 
         for action in self.actions:
             for target in targets:
                 action.run(target)
+
+        return targets
 
 
 class JobParser:

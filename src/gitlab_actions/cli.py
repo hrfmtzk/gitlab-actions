@@ -2,6 +2,9 @@ import os
 from typing import List, Optional, TextIO
 
 import click
+from gitlab import Gitlab
+
+from gitlab_actions.jobs import JobParser
 
 
 def find_env_vars(
@@ -39,4 +42,13 @@ def gljob(
     access_token: Optional[str],
     job_file: TextIO,
 ):
-    pass
+    gl = Gitlab(url, access_token)
+    project = gl.projects.get(project_id)
+
+    parser = JobParser(job_file)
+    parser.parse()
+
+    for job in parser.jobs:
+        click.echo(f"- [{job.target_type.name}] {job.name} ...", nl=False)
+        targets = job.run(project)
+        click.echo(f" (targets: {len(targets)})")
