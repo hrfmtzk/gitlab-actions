@@ -1,0 +1,12 @@
+---
+jobs:
+  - name: no label issues must have backlog label
+    target: issue
+    filters:
+      state: opened
+      labels: [none]
+    actions:
+      - type: label
+        property:
+          add_labels:
+            - backlog
