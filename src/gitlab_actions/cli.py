@@ -35,7 +35,12 @@ def find_env_vars(
     default=find_env_vars(["ACCESS_TOKEN", "PRIVATE_TOKEN"]),
     required=True,
 )
-@click.option("--job-file", type=click.File("rb"), required=True)
+@click.option(
+    "--job-file",
+    type=click.File("rb"),
+    default=find_env_vars(["JOB_FILE"]),
+    required=True,
+)
 def gljob(
     url: Optional[str],
     project_id: Optional[str],
